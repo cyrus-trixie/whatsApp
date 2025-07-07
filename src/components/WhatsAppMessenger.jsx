@@ -9,17 +9,17 @@ I’m Cyrus a web developer based in Nairobi. I help local businesses set up cle
 
 If you don’t have a website yet or you’re thinking of upgrading I’d love to send over a quick free preview. No pressure at all. Let me know if you’re open to it.`;
 
-  const restaurantMessage = `Hey! 👋🏾
-My name is Cyrus, I’m a web developer based in Nairobi.
-I create custom digital menus for restaurants — clean, mobile-friendly, and easy for your customers to access online.
+  const restaurantMessage = `Hey boss! 👋🏾
+I help restaurants like yours attract more customers with clean, mobile-friendly online menus. Super easy to use — no app needed, just a simple website that works on any phone.
 
-Here’s one I recently built for a client:
-👉 www.redcube.co.ke
+Here’s one I built for a client: 👉 www.redcube.co.ke
 
-The service costs 2,000 Ksh for the menu design.
-If you’d like your own domain name (like the one above), it’s an additional 500 Ksh.
+The digital menu design is just 2,000 Ksh.
+Want it on your own domain (like “yourrestaurant.co.ke”)? That’s just 500 extra.
 
-Would you like me to make one for your restaurant?`;
+First draft’s free — no pressure if you don’t like it.
+
+Want me to start one for you?`;
 
   const sendMessage = (message) => {
     if (!phoneNumber) return;
