@@ -2,24 +2,29 @@ import { useState } from "react";
 
 export default function WhatsAppMessenger() {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [section, setSection] = useState("business"); // 'business' or 'restaurant'
+  const [section, setSection] = useState("business"); // 'business' or 'restaurant' or 'clinic'
 
   const genericMessage = `Hey! I came across your business online and thought I’d reach out.
 I’m Cyrus a web developer based in Nairobi. I help local businesses set up clean, professional websites that make it easier for customers to learn more, reach out, and access your services online.
 
 If you don’t have a website yet or you’re thinking of upgrading I’d love to send over a quick free preview. No pressure at all. Let me know if you’re open to it.`;
 
-  const restaurantMessage = `Hey boss! 👋🏾
-I help restaurants like yours attract more customers with clean, mobile-friendly online menus. Super easy to use — no app needed, just a simple website that works on any phone.
+  const restaurantMessage = `Hey! I’m Cyrus, a web dev based in Nairobi.
+I help restaurants upgrade to clean digital menus that customers can access on their phones.
+It helps you look more professional, saves time, and even brings in more customers through Google.
+I recently did one for another spot and they loved it — happy to show you how yours could look.
+I build full sites for just 2K–5K. Interested?`;
 
-Here’s one I built for a client: 👉 www.redcube.co.ke
+  const clinicMessage = `Hey! I’m Cyrus, a web dev based in Nairobi.
+I help beauty businesses like yours get clean, professional websites to show off your work, take bookings, and attract more clients through Google.
 
-The digital menu design is just 2,000 Ksh.
-Want it on your own domain (like “yourrestaurant.co.ke”)? That’s just 500 extra.
+It makes you look more legit, helps people trust you, and makes it easier for clients to find + contact you.
 
-First draft’s free — no pressure if you don’t like it.
+I recently built one for another business and they loved it — I can show you how yours could look too.
 
-Want me to start one for you?`;
+I build full sites for just 2K–5K, start to finish. Super affordable, mobile-friendly, and built to match your vibe.
+
+Let me know if that sounds interesting — I can send you a sample.`;
 
   const sendMessage = (message) => {
     if (!phoneNumber) return;
@@ -48,6 +53,12 @@ Want me to start one for you?`;
           >
             For Restaurants
           </button>
+          <button
+            className={`flex-1 py-2 rounded-xl font-semibold ${section === 'clinic' ? 'bg-purple-600 text-white' : 'bg-gray-800 text-gray-300'}`}
+            onClick={() => setSection('clinic')}
+          >
+            For Clinics
+          </button>
         </div>
 
         <div>
@@ -63,13 +74,13 @@ Want me to start one for you?`;
 
         {/* Message Preview and Send Button */}
         <div className="bg-gray-800 rounded-xl p-3 text-sm text-gray-200 whitespace-pre-line mb-2">
-          {section === 'business' ? genericMessage : restaurantMessage}
+          {section === 'business' ? genericMessage : section === 'restaurant' ? restaurantMessage : clinicMessage}
         </div>
         <button
-          onClick={() => sendMessage(section === 'business' ? genericMessage : restaurantMessage)}
+          onClick={() => sendMessage(section === 'business' ? genericMessage : section === 'restaurant' ? restaurantMessage : clinicMessage)}
           className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-xl shadow"
         >
-          {section === 'business' ? 'Send Business Message' : 'Send Restaurant Menu Message'}
+          {section === 'business' ? 'Send Business Message' : section === 'restaurant' ? 'Send Restaurant Menu Message' : 'Send Clinic Message'}
         </button>
       </div>
     </div>
